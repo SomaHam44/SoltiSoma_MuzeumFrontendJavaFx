@@ -15,7 +15,7 @@
         <Button maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onTorlesButtonClick" prefWidth="100.0" text="Törlés" />
     </children>
 </HBox>
-<TableView fx:id="festmenyTable" minHeight="200.0" prefHeight="200.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+<TableView fx:id="festmenyTable" minHeight="200.0" prefHeight="200.0" prefWidth="500.0" maxWidth="500.0" VBox.vgrow="ALWAYS">
     <columns>
         <TableColumn fx:id="colCim" minWidth="50.0" prefWidth="200.0" text="Cím" />
         <TableColumn fx:id="colEv" minWidth="50.0" prefWidth="150.0" text="Év" />
