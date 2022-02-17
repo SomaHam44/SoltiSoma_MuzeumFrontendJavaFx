@@ -3,6 +3,7 @@ package hu.petrik.muzeumfrontendjavafx.controllers;
 import hu.petrik.muzeumfrontendjavafx.Controller;
 import hu.petrik.muzeumfrontendjavafx.Festmeny;
 import hu.petrik.muzeumfrontendjavafx.MuzeumApi;
+import hu.petrik.muzeumfrontendjavafx.Szobor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -67,6 +68,22 @@ public class FestmenyekController extends Controller {
     }
     @FXML
     public void onModositasButtonClick(ActionEvent actionEvent) {
+        int kivalasztottIndex = festmenyTable.getSelectionModel().getSelectedIndex();
+        if (kivalasztottIndex == -1) {
+            alert("A módosításhoz előbb ki kell választani egy elemet a táblázatból!");
+        }
+        else {
+            Festmeny modositando = festmenyTable.getSelectionModel().getSelectedItem();
+            try {
+                FestmenyekModositasController modositas = (FestmenyekModositasController) ujAblak("festmenyek-modositas_view.fxml","Festmény módosítása", 500, 400);
+                modositas.setModositando(modositando);
+                modositas.getStage().setOnHiding(event -> festmenyTable.refresh());
+                modositas.getStage().show();
+            } catch (IOException e) {
+                hibaKiiro(e);
+            }
+        }
+
     }
     @FXML
     public void onTorlesButtonClick(ActionEvent actionEvent) {

@@ -72,6 +72,22 @@ public class SzobrokController extends Controller {
 
     @FXML
     public void onModositasButtonClick(ActionEvent actionEvent) {
+        int kivalasztottIndex = szoborTable.getSelectionModel().getSelectedIndex();
+        if (kivalasztottIndex == -1) {
+            alert("A módosításhoz előbb ki kell választani egy elemet a táblázatból!");
+        }
+        else {
+            Szobor modositando = szoborTable.getSelectionModel().getSelectedItem();
+            try {
+                SzobrokModositasController modositas = (SzobrokModositasController) ujAblak("szobrok-modositas_view.fxml","Szobor módosítása", 500, 400);
+                modositas.setModositando(modositando);
+                modositas.getStage().setOnHiding(event -> szoborTable.refresh());
+                modositas.getStage().show();
+            } catch (IOException e) {
+                hibaKiiro(e);
+            }
+        }
+
     }
 
     @FXML
