@@ -23,9 +23,9 @@ public class RequestHandler {
 
     }
 
-    public static Response put(String url, String data) throws IOException {
+    public static Response patch(String url, String data) throws IOException {
         HttpURLConnection conn = setupConnection(url);
-        conn.setRequestMethod("PUT");
+        conn.setRequestMethod("PATCH");
         addRequestBody(conn, data);
         return getResponse(conn);
     }
