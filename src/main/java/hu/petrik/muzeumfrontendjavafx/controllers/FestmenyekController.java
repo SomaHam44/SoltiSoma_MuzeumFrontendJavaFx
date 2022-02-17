@@ -26,7 +26,7 @@ public class FestmenyekController extends Controller {
 
         colCim.setCellValueFactory(new PropertyValueFactory<>("title"));
         colEv.setCellValueFactory(new PropertyValueFactory<>("year"));
-        colKiallitva.setCellValueFactory(new PropertyValueFactory<>("onDisplay"));
+        colKiallitva.setCellValueFactory(new PropertyValueFactory<>("on_display"));
         try {
         festmenyListaFeltoltes();
     }

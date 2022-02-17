@@ -4,13 +4,13 @@ public class Festmeny {
     private int id;
     private String title;
     private int year;
-    private boolean onDisplay;
+    private boolean on_display;
 
-    public Festmeny(int id, String title, int year, boolean onDisplay) {
+    public Festmeny(int id, String title, int year, boolean on_display) {
         this.id = id;
         this.title = title;
         this.year = year;
-        this.onDisplay = onDisplay;
+        this.on_display = on_display;
     }
 
     public int getId() {
@@ -37,11 +37,11 @@ public class Festmeny {
         this.year = year;
     }
 
-    public boolean isOnDisplay() {
-        return onDisplay;
+    public boolean isOn_display() {
+        return on_display;
     }
 
-    public void setOnDisplay(boolean onDisplay) {
-        this.onDisplay = onDisplay;
+    public void setOn_display(boolean on_display) {
+        this.on_display = on_display;
     }
 }
