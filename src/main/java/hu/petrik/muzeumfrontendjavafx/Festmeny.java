@@ -2,15 +2,15 @@ package hu.petrik.muzeumfrontendjavafx;
 
 public class Festmeny {
     private int id;
-    private String cim;
-    private int ev;
-    private boolean kiallitva;
+    private String title;
+    private int year;
+    private boolean onDisplay;
 
-    public Festmeny(int id, String cim, int ev, boolean kiallitva) {
+    public Festmeny(int id, String title, int year, boolean onDisplay) {
         this.id = id;
-        this.cim = cim;
-        this.ev = ev;
-        this.kiallitva = kiallitva;
+        this.title = title;
+        this.year = year;
+        this.onDisplay = onDisplay;
     }
 
     public int getId() {
@@ -21,27 +21,27 @@ public class Festmeny {
         this.id = id;
     }
 
-    public String getCim() {
-        return cim;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCim(String cim) {
-        this.cim = cim;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getEv() {
-        return ev;
+    public int getYear() {
+        return year;
     }
 
-    public void setEv(int ev) {
-        this.ev = ev;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public boolean isKiallitva() {
-        return kiallitva;
+    public boolean isOnDisplay() {
+        return onDisplay;
     }
 
-    public void setKiallitva(boolean kiallitva) {
-        this.kiallitva = kiallitva;
+    public void setOnDisplay(boolean onDisplay) {
+        this.onDisplay = onDisplay;
     }
 }

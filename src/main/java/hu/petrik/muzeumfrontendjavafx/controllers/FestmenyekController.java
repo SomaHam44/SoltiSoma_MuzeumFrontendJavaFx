@@ -24,9 +24,9 @@ public class FestmenyekController extends Controller {
 
     public void initialize() {
 
-        colCim.setCellValueFactory(new PropertyValueFactory<>("cim"));
-        colEv.setCellValueFactory(new PropertyValueFactory<>("ev"));
-        colKiallitva.setCellValueFactory(new PropertyValueFactory<>("kiallitva"));
+        colCim.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colEv.setCellValueFactory(new PropertyValueFactory<>("year"));
+        colKiallitva.setCellValueFactory(new PropertyValueFactory<>("onDisplay"));
         try {
         festmenyListaFeltoltes();
     }
@@ -45,7 +45,6 @@ public class FestmenyekController extends Controller {
             List<Festmeny> festmenyek = MuzeumApi.getFestmenyek();
             festmenyTable.getItems().clear();
             for (Festmeny festmeny : festmenyek) {
-                System.out.println(festmeny.getEv());
                 festmenyTable.getItems().add(festmeny);
             }
         } catch (IOException e) {

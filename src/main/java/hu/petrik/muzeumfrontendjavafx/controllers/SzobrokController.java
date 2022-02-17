@@ -23,9 +23,9 @@ public class SzobrokController extends Controller {
     public TableColumn<Szobor, Integer> colAr;
 
     public void initialize() {
-        colSzemely.setCellValueFactory(new PropertyValueFactory<>("nev"));
-        colMagassag.setCellValueFactory(new PropertyValueFactory<>("magassag"));
-        colAr.setCellValueFactory(new PropertyValueFactory<>("ar"));
+        colSzemely.setCellValueFactory(new PropertyValueFactory<>("person"));
+        colMagassag.setCellValueFactory(new PropertyValueFactory<>("height"));
+        colAr.setCellValueFactory(new PropertyValueFactory<>("price"));
         try {
             szoborListaFeltoltes();
         }
