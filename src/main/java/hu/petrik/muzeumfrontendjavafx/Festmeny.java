@@ -4,9 +4,9 @@ public class Festmeny {
     private int id;
     private String cim;
     private int ev;
-    private int kiallitva;
+    private boolean kiallitva;
 
-    public Festmeny(int id, String cim, int ev, int kiallitva) {
+    public Festmeny(int id, String cim, int ev, boolean kiallitva) {
         this.id = id;
         this.cim = cim;
         this.ev = ev;
@@ -37,11 +37,11 @@ public class Festmeny {
         this.ev = ev;
     }
 
-    public int isKiallitva() {
+    public boolean isKiallitva() {
         return kiallitva;
     }
 
-    public void setKiallitva(int kiallitva) {
+    public void setKiallitva(boolean kiallitva) {
         this.kiallitva = kiallitva;
     }
 }

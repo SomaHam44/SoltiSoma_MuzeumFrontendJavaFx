@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MuzeumApi {
-    private static final String BASE_URL = "http://localhost:8000";
+    private static final String BASE_URL = "http://127.0.0.1:8000";
     private static final String FESTMENY_API_URL = BASE_URL + "/api/paintings";
     private static final String SZOBOR_API_URL = BASE_URL + "/api/statues";
 
@@ -23,9 +23,9 @@ public class MuzeumApi {
 
         }
         Type type = new TypeToken<List<Festmeny>>(){}.getType();
-        return jsonConvert.fromJson(json, type);
-
+         return jsonConvert.fromJson(json, type);
     }
+
 
     public static List<Szobor> getSzobrok() throws IOException {
         Response response = RequestHandler.get(SZOBOR_API_URL);
@@ -39,6 +39,8 @@ public class MuzeumApi {
         Type type = new TypeToken<List<Szobor>>(){}.getType();
         return jsonConvert.fromJson(json, type);
     }
+
+
 
 
 }
