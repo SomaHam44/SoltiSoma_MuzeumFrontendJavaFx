@@ -57,7 +57,7 @@ public class FestmenyekController extends Controller {
     @FXML
     public void onHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzaadas = ujAblak("festmenyek_hozzaadas_view.fxml", "Festmény hozzáadása", 500, 400);
+            Controller hozzaadas = ujAblak("festmenyek-hozzaadas_view.fxml", "Festmény hozzáadása", 500, 400);
             hozzaadas.getStage().setOnCloseRequest(event -> festmenyListaFeltoltes());
             hozzaadas.getStage().show();
         }
@@ -70,6 +70,21 @@ public class FestmenyekController extends Controller {
     }
     @FXML
     public void onTorlesButtonClick(ActionEvent actionEvent) {
+        int kivalasztottIndex = festmenyTable.getSelectionModel().getSelectedIndex();
+        if (kivalasztottIndex == -1) {
+            alert("A törléshez előbb ki kell választani egy elemet a táblázatból!");
+        }
+        Festmeny torolhetoFestmeny = festmenyTable.getSelectionModel().getSelectedItem();
+        if (!megerositoAblak("Biztos, hogy törölni szeretné az alábbi festményt: " + torolhetoFestmeny.getTitle())) {
+            return;
+        }
+        try {
+            boolean sikeres = MuzeumApi.festmenyTorlese(torolhetoFestmeny.getId());
+            alert(sikeres? "Sikeres törlés " : "Sikertelen törlés");
+            festmenyListaFeltoltes();
+        } catch (IOException e) {
+            hibaKiiro(e);
+        }
 
     }
 }

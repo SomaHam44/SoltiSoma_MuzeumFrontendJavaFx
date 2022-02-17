@@ -1,6 +1,7 @@
 package hu.petrik.muzeumfrontendjavafx.controllers;
 
 import hu.petrik.muzeumfrontendjavafx.Controller;
+import hu.petrik.muzeumfrontendjavafx.Festmeny;
 import hu.petrik.muzeumfrontendjavafx.MuzeumApi;
 import hu.petrik.muzeumfrontendjavafx.Szobor;
 import javafx.event.ActionEvent;
@@ -60,7 +61,7 @@ public class SzobrokController extends Controller {
     @FXML
     public void onHozzadasButtonClick(ActionEvent actionEvent) {
         try {
-            Controller hozzaadas = ujAblak("szobrok_hozzaadas_view.fxml", "Szobor hozzáadása", 500, 400);
+            Controller hozzaadas = ujAblak("szobrok-hozzaadas_view.fxml", "Szobor hozzáadása", 500, 400);
             hozzaadas.getStage().setOnCloseRequest(event -> szoborListaFeltoltes());
             hozzaadas.getStage().show();
         }
@@ -75,5 +76,20 @@ public class SzobrokController extends Controller {
 
     @FXML
     public void onTorlesButtonClick(ActionEvent actionEvent) {
+        int kivalasztottIndex = szoborTable.getSelectionModel().getSelectedIndex();
+        if (kivalasztottIndex == -1) {
+            alert("A törléshez előbb ki kell választani egy elemet a táblázatból!");
+        }
+        Szobor torolhetoSzobor = szoborTable.getSelectionModel().getSelectedItem();
+        if (!megerositoAblak("Biztos, hogy törölni szeretné az alábbi szobrot: " + torolhetoSzobor.getPerson())) {
+            return;
+        }
+        try {
+            boolean sikeres = MuzeumApi.szoborTorlese(torolhetoSzobor.getId());
+            alert(sikeres? "Sikeres törlés " : "Sikertelen törlés");
+            szoborListaFeltoltes();
+        } catch (IOException e) {
+            hibaKiiro(e);
+        }
     }
 }
