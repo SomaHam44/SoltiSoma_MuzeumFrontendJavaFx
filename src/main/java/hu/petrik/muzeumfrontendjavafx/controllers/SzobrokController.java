@@ -59,6 +59,14 @@ public class SzobrokController extends Controller {
 
     @FXML
     public void onHozzadasButtonClick(ActionEvent actionEvent) {
+        try {
+            Controller hozzaadas = ujAblak("szobrok_hozzaadas_view.fxml", "Szobor hozzáadása", 500, 400);
+            hozzaadas.getStage().setOnCloseRequest(event -> szoborListaFeltoltes());
+            hozzaadas.getStage().show();
+        }
+        catch (Exception e) {
+            hibaKiiro(e);
+        }
     }
 
     @FXML

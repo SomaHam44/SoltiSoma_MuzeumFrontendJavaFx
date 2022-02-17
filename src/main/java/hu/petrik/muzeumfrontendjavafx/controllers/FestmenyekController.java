@@ -56,6 +56,14 @@ public class FestmenyekController extends Controller {
 
     @FXML
     public void onHozzadasButtonClick(ActionEvent actionEvent) {
+        try {
+            Controller hozzaadas = ujAblak("festmenyek_hozzaadas_view.fxml", "Festmény hozzáadása", 500, 400);
+            hozzaadas.getStage().setOnCloseRequest(event -> festmenyListaFeltoltes());
+            hozzaadas.getStage().show();
+        }
+        catch (Exception e) {
+            hibaKiiro(e);
+        }
     }
     @FXML
     public void onModositasButtonClick(ActionEvent actionEvent) {
