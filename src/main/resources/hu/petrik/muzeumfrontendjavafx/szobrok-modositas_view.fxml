@@ -30,6 +30,6 @@
             </valueFactory>
         </Spinner>
         <TextField fx:id="inputSzemely" GridPane.columnIndex="1" />
-        <Button minWidth="100.0" mnemonicParsing="false" onAction="#onModositasButtonClick" prefWidth="200.0" text="Hozzáadás" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button minWidth="100.0" mnemonicParsing="false" onAction="#onModositasButtonClick" prefWidth="200.0" text="Módosítás" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     </children>
 </GridPane>

@@ -71,7 +71,7 @@ public class MuzeumApi {
     public static Festmeny festmenyModositasa(Festmeny modositando) throws IOException {
         Gson jsonConvert = new Gson();
         String festmenyJson = jsonConvert.toJson(modositando);
-        Response response = RequestHandler.patch(FESTMENY_API_URL + "/" + modositando.getId(), festmenyJson);
+        Response response = RequestHandler.put(FESTMENY_API_URL + "/" + modositando.getId(), festmenyJson);
         String json = response.getContent();
         if (response.getResponseCode() >= 400) {
             System.out.println(json);
@@ -84,7 +84,7 @@ public class MuzeumApi {
     public static Szobor szoborModositasa(Szobor modositando) throws IOException {
         Gson jsonConvert = new Gson();
         String szoborJson = jsonConvert.toJson(modositando);
-        Response response = RequestHandler.patch(SZOBOR_API_URL + "/" + modositando.getId(), szoborJson);
+        Response response = RequestHandler.put(SZOBOR_API_URL + "/" + modositando.getId(), szoborJson);
         String json = response.getContent();
         if (response.getResponseCode() >= 400) {
             System.out.println(json);

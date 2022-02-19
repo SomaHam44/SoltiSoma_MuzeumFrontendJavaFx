@@ -22,6 +22,11 @@ public class SzobrokHozzaadasController extends Controller {
             return;
         }
 
+        if (szemely.length() < 3) {
+            alert("A személy  neve 3 karakternél hosszabb kell, hogy legyen!");
+            return;
+        }
+
         try {
             magassag = inputMagassag.getValue();
         } catch (NullPointerException ex) {
