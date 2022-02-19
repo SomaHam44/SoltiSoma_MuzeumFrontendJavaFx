@@ -3,7 +3,6 @@ package hu.petrik.muzeumfrontendjavafx.controllers;
 import hu.petrik.muzeumfrontendjavafx.Controller;
 import hu.petrik.muzeumfrontendjavafx.Festmeny;
 import hu.petrik.muzeumfrontendjavafx.MuzeumApi;
-import hu.petrik.muzeumfrontendjavafx.Szobor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
