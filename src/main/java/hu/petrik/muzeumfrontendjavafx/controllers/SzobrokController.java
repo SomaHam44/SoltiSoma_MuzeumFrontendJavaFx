@@ -31,7 +31,7 @@ public class SzobrokController extends Controller {
         }
         catch (Exception e) {
             hibaKiiro(e);
-            System.out.println(e);
+
         }
 
 
@@ -105,6 +105,8 @@ public class SzobrokController extends Controller {
             szoborListaFeltoltes();
         } catch (IOException e) {
             hibaKiiro(e);
+            e.printStackTrace();
+            System.out.println(e);
         }
     }
 }

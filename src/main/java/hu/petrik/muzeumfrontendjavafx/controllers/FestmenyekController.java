@@ -101,6 +101,8 @@ public class FestmenyekController extends Controller {
             festmenyListaFeltoltes();
         } catch (IOException e) {
             hibaKiiro(e);
+            e.printStackTrace();
+            System.out.println(e);
         }
 
     }
